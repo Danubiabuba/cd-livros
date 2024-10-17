@@ -1,0 +1,18 @@
+/* public/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+form input, form button {
+    margin: 5px;
+}
+
+img {
+    max-width: 100px;
+    height: auto;
+}
