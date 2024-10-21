@@ -25,3 +25,8 @@ const bucketName = process.env.S3_BUCKET_NAME;
 console.log(`Access Key: ${awsAccessKey}`);
 console.log(`Secret Key: ${awsSecretKey}`);
 console.log(`Bucket Name: ${bucketName}`);
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Algo deu errado!');
+});
