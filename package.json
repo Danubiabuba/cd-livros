@@ -10,9 +10,10 @@
   "author": "Seu Nome",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "multer": "^1.4.2",
     "aws-sdk": "^2.1020.0",
+    "express": "^4.17.1",
+    "express-validator": "^7.2.0",
+    "multer": "^1.4.2",
     "pg": "^8.7.1"
   }
 }
