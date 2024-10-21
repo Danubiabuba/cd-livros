@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const { validationResult } = require('express-validator'); // Importação para validação
 const { awsConfig, s3BucketName } = require('../config/awsConfig');
 const bookModel = require('../models/bookModels');
 
@@ -8,7 +9,13 @@ const s3 = new AWS.S3();
 
 // Função para criar um novo livro
 exports.createBook = async (req, res) => {
-    const { titulo, autor } = req.body;
+    // Verifica se houve erros de validação
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() }); // Retorna erros de validação
+    }
+
+    const { titulo, autor } = req.body; // Use o nome correto do campo
     const file = req.file;
 
     // Verifica se o arquivo foi enviado
@@ -18,10 +25,10 @@ exports.createBook = async (req, res) => {
 
     const params = {
         Bucket: s3BucketName,
-        Key: `books/${Date.now()}_${file.originalname}`, // Adicionando um nome único para o arquivo
+        Key: `books/${Date.now()}_${file.originalname}`, // Nome único para o arquivo
         Body: file.buffer,
         ACL: 'public-read', // Permissão para leitura pública
-        ContentType: file.mimetype // Adicionando tipo de conteúdo
+        ContentType: file.mimetype // Tipo de conteúdo
     };
 
     try {
