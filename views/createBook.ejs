@@ -2,8 +2,8 @@
 <html lang="pt">
 <head>
     <title>Cadastrar Livro</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
@@ -21,9 +21,11 @@
                 <div class="form-group">
                     <label for="coverImage">Imagem de Capa</label>
                     <input type="file" name="coverImage" id="coverImage" class="form-control-file" required>
+                    <small class="form-text text-muted">Extensões aceitas: .jpg, .jpeg, .png</small>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
             </form>
+            <p class="text-center mt-3">Já tem uma conta? <a href="/auth/login">Login aqui</a></p>
         </div>
     </div>
 
@@ -31,5 +33,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Atualiza o texto da label com o nome do arquivo selecionado
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.querySelector('.custom-file-input');
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    const fileName = this.files[0] ? this.files[0].name : "Arquivo";
+                    this.nextElementSibling.innerText = fileName;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
