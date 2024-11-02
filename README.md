@@ -157,10 +157,16 @@ javascript
 
 ## Diagrama de Fluxo de Dados
 
-Descreva brevemente o que este diagrama representa e como os dados fluem entre os componentes do sistema.
+O Diagrama de Fluxo de Dados (DFD) ilustra como os dados fluem através do sistema. Ele mostra as entradas, saídas, armazenamento e os processos que transformam esses dados. Esse diagrama é útil para entender como as informações são processadas e onde podem haver interações com o usuário ou outros sistemas.
+
+![Diagrama de Fluxo de Dados](public/diagramas/Diagrama%20fluxos%20de%20dados.drawio.png)
+
 ## Diagrama de Classes
 
-Descreva brevemente o que este diagrama representa e como as classes interagem entre si.
+O Diagrama de Classes é uma representação estática da estrutura do sistema, mostrando as classes, seus atributos, métodos e os relacionamentos entre elas. Ele ajuda a visualizar a arquitetura do software, como as entidades do sistema (por exemplo, Livro, Autor) estão relacionadas e como interagem entre si.
+
+![Diagram de Classes](public/diagramas/diagram%20de%20classes%20sdc-livro.drawio.png)
+
 ## Prints do Projeto
 
 Coloque os prints do seu projeto na pasta public ou em um diretório específico, como public/screenshots/, e faça referência a eles aqui.
