@@ -1,27 +1,12 @@
+// routes/bookRoutes.js
 const express = require('express');
-const multer = require('multer');
-const bookController = require('../controllers/bookController');
 const router = express.Router();
-const upload = multer({ storage: multer.memoryStorage() });
-const { body } = require('express-validator');
+const bookController = require('../controllers/bookController');
 
+// Define a rota GET para /books
+router.get('/books', bookController.getBooks);
 
-// Rota para renderizar o formulário de criação de livro
-router.get('/create', (req, res) => {
-    res.render('createBook')
-});
-
-// Rota para criar um novo livro
-router.post('/create',
-    upload.single('coverImage'),
-    [
-        body('title').notEmpty().withMessage('Título é obrigatório.'),
-        body('author').notEmpty().withMessage('Autor é obrigatório.')
-    ],
-    bookController.createBook
-);
-
-// Rota para listar os livros
-router.get('/', bookController.listBooks);
+// Nova rota para pesquisar livro pelo ISBN
+router.get('/books/isbn/:isbn', bookController.searchBookByIsbn);
 
 module.exports = router;
