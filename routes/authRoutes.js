@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Rota para renderizar a página de cadastro
 router.get('/register', (req, res) => {
-    res.render('register');
+    res.render('auth/register');
 });
 
 // Rota para processar o cadastro
@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
 
 // Rota para renderizar a página de login
 router.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'});
+    res.render('auth/login', {title: 'Login'});
 });
 
 // Rota para processar o login
@@ -44,7 +44,7 @@ router.post('/login', (req, res) => {
 
 // Rota para renderizar a página de recuperação de senha
 router.get('/forgot-password', (req, res) => {
-    res.render('forgot-password');
+    res.render('auth/forgot-password');
 });
 
 // Rota para processar a solicitação de recuperação de senha

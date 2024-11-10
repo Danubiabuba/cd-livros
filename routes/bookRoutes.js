@@ -7,7 +7,9 @@ const { body } = require('express-validator');
 
 
 // Rota para renderizar o formulário de criação de livro
-router.get('/create', (req, res) => res.render('createBook'));
+router.get('/create', (req, res) => {
+    res.render('createBook')
+});
 
 // Rota para criar um novo livro
 router.post('/create',
